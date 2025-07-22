@@ -1,7 +1,24 @@
 ﻿@page
-@model BugTrackerFrontend.Pages.LoginModel
+@model LoginModel
 @{
     ViewData["Title"] = "Login";
 }
 
 <h2>Login</h2>
+
+<form method="post">
+    <div>
+        <label>Email:</label>
+        <input asp-for="Input.Email" />
+    </div>
+    <div></div>
+        <label>Password:</label>
+        <input asp-for="Input.Password" />
+    </div>
+    <button type="submit">Login</button>
+</form>
+
+@if (!string.IsNullOrEmpty(Model.ErrorMessage)) 
+{
+    <p style="color:red">@Model.ErrorMessage</p>
+}
