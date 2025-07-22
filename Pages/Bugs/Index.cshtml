@@ -1,0 +1,38 @@
+﻿@page
+@model BugsModel
+@{
+    ViewData["Title"] = "Bug List";
+}
+
+<h2>Bug List</h2>
+
+@if (Model.Bugs != null && Model.Bugs.Any()) 
+{
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Priority</th>
+                <th>Status</th>
+                <th>Created</th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var bug in Model.Bugs) 
+        {
+            <tr>
+                <td>@bug.Title</td>
+                <td>@bug.Priority</td>
+                <td>@bug.Status</td>
+                <td>@bug.CreatedAt.ToString("g")</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}
+else 
+{
+    <p>No bugs to display.</p>
+}
+
+
