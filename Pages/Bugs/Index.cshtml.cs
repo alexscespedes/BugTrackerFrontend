@@ -29,7 +29,7 @@ namespace BugTrackerFrontend.Pages.Bugs
             var client = _clientFactory.CreateClient();
             client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
 
-            var response = await client.GetAsync("http:localhost:5020/api/bugs");
+            var response = await client.GetAsync("http://localhost:5020/api/bugs");
 
             if (response.IsSuccessStatusCode)
             {
@@ -43,9 +43,10 @@ namespace BugTrackerFrontend.Pages.Bugs
 
     public class BugDto
     {
+        public int Id { get; set; }
         public string Title { get; set; }
-        public string Priority { get; set; }
-        public string Status { get; set; }
+        public int Priority { get; set; }
+        public int Status { get; set; }
         public DateTime CreatedAt { get; set; }
     }
 }

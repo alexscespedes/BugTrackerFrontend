@@ -23,8 +23,17 @@
             <tr>
                 <td>@bug.Title</td>
                 <td>@bug.Priority</td>
-                <td>@bug.Status</td>
-                <td>@bug.CreatedAt.ToString("g")</td>
+                <td>@{
+                        var statusText = bug.Status switch {
+                            0 => "Open",
+                            1 => "Open",
+                            2 => "Open",
+                            _ => "Unknown",
+                        };
+                    }
+                    @statusText
+                </td>
+                <td>@bug.CreatedAt.ToString("yyyy-MM-dd")</td>
             </tr>
         }
         </tbody>
