@@ -1,0 +1,31 @@
+﻿@page
+@model BugTrackerFrontend.Pages.Bugs.CreateModel
+@{
+    ViewData["Title"] = "Create Bug";
+}
+
+<h2>Created New Bug</h2>
+
+<form method="post">
+    <div>
+        <label>Title:</label>
+        <input asp-for="Bug.Title" />
+    </div>
+    <div>
+        <label>Priority:</label>
+        <select asp-for="Bug.Priority">
+            <option value="1">Low</option>
+            <option value="2">Medium</option>
+            <option value="3">High</option>
+        </select>
+    </div>
+    <div>
+        <label>Status:</label>
+        <select asp-for="Bug.Status">
+            <option value="0">Open</option>
+            <option value="1">In Progress</option>
+            <option value="2">Resolved</option>
+        </select>
+    </div>
+    <button type="submit">Create</button>
+</form>
