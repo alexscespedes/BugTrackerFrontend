@@ -2,7 +2,10 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
-builder.Services.AddHttpClient();
+builder.Services.AddHttpClient("BugApi", client =>
+{
+    client.BaseAddress = new Uri("http://localhost:5020");
+});
 
 var app = builder.Build();
 
